@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+
+}
+.container {
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+.container img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin-top: -50px;
+}
+.container label {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+.container label span {
+    color: white;
+    font-size: 25px;
+    text-transform: uppercase;
+    display: block;
+    border: 2px solid white;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 48px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.container label span:before {
+    content: "Turn Off";
+}
+.container label span:hover {
+    background-color: whitesmoke;
+    color: black;
+}
+.container img#on {
+    opacity: 0;
+    animation: glow 3s linear infinite;
+    transform: rotate(1deg);
+}
+@keyframes glow {
+    0% {
+        opacity: 1;
+    }
+
+    5% {
+        opacity: 0.9;
+    }
+
+    70% {
+        opacity: 1.1;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 0;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+/* The general sibling(means simliar apply for both) selector selects all elements that are next siblings of a specified element. */
+#btn:checked~img#on {
+    animation: none;
+}
+
+#btn:checked ~ label span:before {
+    content: "Turn ON";
+}
+
+.container input {
+    display: none;
+}
